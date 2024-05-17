@@ -77,7 +77,7 @@
             label1.ForeColor = Color.MediumSeaGreen;
             label1.Location = new Point(894, 54);
             label1.Name = "label1";
-            label1.RightToLeft = RightToLeft.Yes;
+            label1.RightToLeft = RightToLeft.No;
             label1.Size = new Size(77, 27);
             label1.TabIndex = 0;
             label1.Text = "label1";

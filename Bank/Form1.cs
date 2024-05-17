@@ -1,18 +1,15 @@
+using Microsoft.VisualBasic.Logging;
 using System.Data.SQLite;
-using System.Data;
-using System.IO;
-using System;
-using Microsoft.VisualBasic.ApplicationServices;
-using System.Xml;
-using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace Bank
 {
     public partial class Form1 : Form
     {
+        string connectionPath = @"Data Source=\\\OSDEEQAB097723\db\bank.db;Version=3;";
         public Form1()
         {
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -46,7 +43,7 @@ namespace Bank
 
             //Check for Entered First Name And Pincode
             string query = "SELECT AccountNumber, Balance, FirstName, LastName FROM Users WHERE AccountNumber = @AccountNumber AND PinCode = @PinCode;";
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(query, connection);
             connection.Open();
@@ -95,7 +92,7 @@ namespace Bank
 
             //Check for Entered First Name And Pincode
             string query = "SELECT AccountNumber, Balance, FirstName, LastName FROM Users WHERE AccountNumber = @AccountNumber AND PinCode = @PinCode;";
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(query, connection);
             connection.Open();
@@ -186,7 +183,7 @@ namespace Bank
         private async void button2_Click(object sender, EventArgs e)
         {
             string query = "SELECT AccountNumber, Balance, FirstName, LastName FROM Users WHERE FirstName = @FirstName AND PinCode = @PinCode;";
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(query, connection);
             connection.Open();
@@ -276,7 +273,7 @@ namespace Bank
             string pinCode = textBox5.Text;
 
             string query = "SELECT AccountNumber, Balance, FirstName, LastName FROM Users WHERE FirstName = @FirstName AND PinCode = @PinCode;";
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(query, connection);
             connection.Open();
@@ -342,7 +339,7 @@ namespace Bank
             accountNumber = textBox1.Text;
             pinCode = textBox2.Text;
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -366,7 +363,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -390,7 +387,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -414,7 +411,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -438,7 +435,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -462,7 +459,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -486,7 +483,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -510,7 +507,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -534,7 +531,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -558,7 +555,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -582,7 +579,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
@@ -606,7 +603,7 @@ namespace Bank
             pinCode = textBox2.Text;
 
 
-            string connectionString = "Data Source=bank.db;Version=3;";
+            string connectionString = connectionPath;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand(connection);
             connection.Open();
