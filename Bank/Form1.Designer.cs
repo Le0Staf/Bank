@@ -33,6 +33,9 @@
             label2 = new Label();
             panel1 = new Panel();
             label12 = new Label();
+            label9 = new Label();
+            label13 = new Label();
+            textBox6 = new TextBox();
             label3 = new Label();
             textBox1 = new TextBox();
             label4 = new Label();
@@ -42,7 +45,6 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            label9 = new Label();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
@@ -66,6 +68,9 @@
             button16 = new Button();
             button17 = new Button();
             button18 = new Button();
+            textBox7 = new TextBox();
+            label14 = new Label();
+            button19 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -100,6 +105,7 @@
             // 
             panel1.BackColor = Color.Red;
             panel1.Controls.Add(label12);
+            panel1.Controls.Add(label9);
             panel1.Location = new Point(44, 95);
             panel1.Name = "panel1";
             panel1.Size = new Size(946, 69);
@@ -117,6 +123,38 @@
             label12.TabIndex = 2;
             label12.Text = "label12";
             label12.Visible = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Arial", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(348, 30);
+            label9.Name = "label9";
+            label9.Size = new Size(106, 23);
+            label9.TabIndex = 12;
+            label9.Text = "First Name";
+            label9.Visible = false;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Arial", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.Location = new Point(394, 184);
+            label13.Name = "label13";
+            label13.Size = new Size(31, 23);
+            label13.TabIndex = 37;
+            label13.Text = "To";
+            label13.Visible = false;
+            // 
+            // textBox6
+            // 
+            textBox6.Font = new Font("Arial", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox6.Location = new Point(394, 210);
+            textBox6.MaxLength = 32;
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(255, 30);
+            textBox6.TabIndex = 35;
+            textBox6.Visible = false;
             // 
             // label3
             // 
@@ -217,21 +255,10 @@
             label8.Text = "Last Name";
             label8.Visible = false;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Arial", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(393, 125);
-            label9.Name = "label9";
-            label9.Size = new Size(106, 23);
-            label9.TabIndex = 12;
-            label9.Text = "First Name";
-            label9.Visible = false;
-            // 
             // textBox3
             // 
             textBox3.Font = new Font("Arial", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(393, 151);
+            textBox3.Location = new Point(394, 151);
             textBox3.MaxLength = 32;
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(255, 30);
@@ -350,9 +377,10 @@
             button5.Name = "button5";
             button5.Size = new Size(284, 56);
             button5.TabIndex = 21;
-            button5.Text = "Transaction Log";
+            button5.Text = "Transfer";
             button5.UseVisualStyleBackColor = false;
             button5.Visible = false;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -549,12 +577,53 @@
             button18.Visible = false;
             button18.Click += button18_Click;
             // 
+            // textBox7
+            // 
+            textBox7.Font = new Font("Arial", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox7.Location = new Point(394, 272);
+            textBox7.MaxLength = 32;
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(255, 30);
+            textBox7.TabIndex = 36;
+            textBox7.Visible = false;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Arial", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Location = new Point(394, 243);
+            label14.Name = "label14";
+            label14.Size = new Size(76, 23);
+            label14.TabIndex = 37;
+            label14.Text = "Amount";
+            label14.Visible = false;
+            // 
+            // button19
+            // 
+            button19.BackColor = Color.Red;
+            button19.FlatStyle = FlatStyle.Popup;
+            button19.Font = new Font("Arial", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            button19.ForeColor = SystemColors.ControlLight;
+            button19.Location = new Point(380, 364);
+            button19.Name = "button19";
+            button19.Size = new Size(284, 56);
+            button19.TabIndex = 38;
+            button19.Text = "Transfer";
+            button19.UseVisualStyleBackColor = false;
+            button19.Visible = false;
+            button19.Click += button19_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1033, 517);
+            Controls.Add(textBox6);
+            Controls.Add(label13);
+            Controls.Add(button19);
+            Controls.Add(label14);
+            Controls.Add(textBox7);
             Controls.Add(button13);
             Controls.Add(button14);
             Controls.Add(button15);
@@ -580,7 +649,6 @@
             Controls.Add(textBox5);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
-            Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -639,5 +707,10 @@
         private Button button16;
         private Button button17;
         private Button button18;
+        private Label label13;
+        private TextBox textBox6;
+        private TextBox textBox7;
+        private Label label14;
+        private Button button19;
     }
 }

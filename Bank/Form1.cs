@@ -632,5 +632,78 @@ namespace Bank
             button18.Visible = true;
             button12.Visible = true;
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            button3.Visible = false;
+            button4.Visible = false;
+            button5.Visible = false;
+
+            button19.Visible = true;
+            textBox6.Visible = true;
+            textBox7.Visible = true;
+            label13.Visible = true;
+            label14.Visible = true;
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            string toAccountNumber;
+            string amount;
+
+            toAccountNumber = textBox6.Text;
+            amount = textBox7.Text;
+
+            string connectionString = connectionPath;
+            using var connection = new SQLiteConnection(connectionString);
+            using var command = new SQLiteCommand(connection);
+            connection.Open();
+
+            command.CommandText = "UPDATE Users SET Balance = Balance + @Amount WHERE AccountNumber = @ToAccountNumber";
+
+            command.Parameters.AddWithValue("@ToAccountNumber", toAccountNumber);
+            command.Parameters.AddWithValue("@Amount", amount);
+
+            command.ExecuteNonQuery();
+
+            button3.Visible = true;
+            button4.Visible = true;
+            button5.Visible = true;
+
+            button19.Visible = false;
+            textBox6.Visible = false;
+            textBox7.Visible = false;
+            label13.Visible = false;
+            label14.Visible = false;
+
+
+            transactionUpdate();
+        }
+
+        public void transactionUpdate()
+        {
+            string accountNumber;
+            string pinCode;
+            string amount;
+
+            accountNumber = textBox1.Text;
+            pinCode = textBox2.Text;
+            amount = textBox7.Text;
+
+            string connectionString = connectionPath;
+            using var connection = new SQLiteConnection(connectionString);
+            using var command = new SQLiteCommand(connection);
+            connection.Open();
+
+            command.CommandText = "UPDATE Users SET Balance = Balance - @Amount WHERE AccountNumber = @AccountNumber AND PinCode = @PinCode";
+
+            command.Parameters.AddWithValue("@AccountNumber", accountNumber);
+            command.Parameters.AddWithValue("@PinCode", pinCode);
+            command.Parameters.AddWithValue("@Amount", amount);
+
+            command.ExecuteNonQuery();
+
+            UpdateBalance();
+        }
     }
 }
